@@ -1,0 +1,474 @@
+<html lang="es-es">
+<head>
+    <meta charset="UTF-8">
+    <title>Guía ÁngularJS 6.1.8</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="container">
+    <div>
+        <h1 class="title text-center">ÁngularJS</h1>
+    </div>
+    <div id="sidebar">
+        <ul>
+            <li id="load_1" class="load_content">Instalación y arranque</li>
+            <li id="load_2" class="load_content">Estructura del proyecto</li>
+            <li id="load_3" class="load_content">Componentes</li>
+            <li id="load_4" class="load_content">Clases</li>
+            <li id="load_5" class="load_content">Módulos</li>
+        </ul>
+    </div>
+    <div id="content"></div>
+</div>
+
+
+<!-- CONTENIDO OCULTO-->
+<div style="display: none;">
+    <div id="cont_5">
+        <h2>Módulos</h2>
+        <p>Los módulos se gestionan desde app.module.ts</p>
+        <button class="btn btn-primary" data-toggle="collapse" href="#newModule" role="button" aria-expanded="false" aria-controls="newModule" >
+            Nuevo
+        </button>
+        <div id="newModule" class="collapse">
+            <div class="parrafo">Para añadir un nuevo módulo, abrimos el archivo app.module.ts y añadimos lo siguiente:</div>
+            <div class="archivo">
+                <div>app.module.ts</div>
+                <pre>
+import { FormsModule } from '@angular/forms'; // <-- NgModel
+    imports: [
+        BrowserModule,
+        FormsModule
+    ],
+
+</pre>
+            </div>
+            <div class="parrafo">En este ejemplo hemos añadido el módulo "FormsModule" para implementar ngModel</div>
+
+        </div>
+
+
+    </div>
+    <div id="cont_4">
+        <h2>Clases</h2>
+        <button class="btn btn-primary" data-toggle="collapse" href="#creaClase" role="button" aria-expanded="false" aria-controls="creaClase" >
+            Nuevo
+        </button>
+        <div id="creaClase" class="collapse">
+            <div class="parrafo">1. Para crear una clase, creamos el archivo clase.ts dentro de /src/app.</div>
+            <div class="archivo">
+                <div>src/app/clase.ts</div>
+<pre>
+export class Hero {
+    id: number;
+    name: string;
+}
+</pre>
+            </div>
+
+        </div>
+    </div>
+    <div id="cont_1">
+        <h2>Instalación y arranque</h2>
+        <div class="parrafo">Para la instalación de AngularJS usaremos NodeJS. Abrimos la consola y ejecutamos:</div>
+        <div class="parrafo">1.Instala AngularJS a la consola<br/><span class="node_command"> npm install -g @angular/cli</span></div>
+        <div class="parrafo">2. Creamos una nueva app llamada "my-app". Debemos ubicarnos en la raiz donde queremos que se ubique el proyecto<br/><span class="node_command">ng new my-app</span></div>
+        <div class="parrafo">
+            <span>3.Inicia el servidor y pone a correr la app</span><br>
+            <div class="node_command">
+                <span>cd my-app</span><br/>
+                <span>ng serve --open</span>
+            </div>
+        </div>
+        <div class="parrafo">Podemos ver nuestra app en: <a href="http://localhost:4200/">http://localhost:4200/</a></div>
+    </div>
+    <div id="cont_3">
+        <h2>Componentes</h2>
+        <button class="btn btn-primary" data-toggle="collapse" href="#creaCompo" role="button" aria-expanded="false" aria-controls="creaCompo" >
+            Nuevo
+        </button>
+        <button class="btn btn-primary" data-toggle="collapse" href="#importClass" role="button" aria-expanded="false" aria-controls="importClass" >
+            Importar clase
+        </button>
+        <div id="creaCompo" class="collapse">
+            <div class="parrafo">1. Para crear un nuevo componente, usamos la consola de node:<br/><span class="node_command">ng generate component heroes</span></div>
+            <div class="parrafo">Al crear un nuevo componente se crea automáticamente la carpeta dentro de /src/app con los archivos principales.</div>
+        </div>
+        <div id="importClass" class="collapse">
+            <div class="parrafo">1. Para importar una clase en un componentes, debemos modificar el component.ts y añadir lo siguiente:</div>
+            <div class="archivo">
+                <div>src/app/heroes/heroes.component.ts</div>
+                <pre>
+import { Component, OnInit } from '@angular/core';
+import { Hero } from '../hero';
+
+@Component({
+  selector: 'app-heroes',
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.css']
+})
+export class HeroesComponent implements OnInit {
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  };
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
+</pre>
+            </div>        </div>
+
+    </div>
+    <div id="cont_2">
+        <h2>Estructura del proyecto</h2>
+        <button class="btn btn-primary" data-toggle="collapse" href="#arbolRaiz" role="button" aria-expanded="false" aria-controls="arbolRaiz" >
+            Arbol raiz
+        </button>
+        <button class="btn btn-primary" data-toggle="collapse" href="#arbolSrc" role="button" aria-expanded="false" aria-controls="arbolSrc" >
+            Arbol src
+        </button>
+        <div id="arbolRaiz" class="collapse">
+            <div class="filetree">
+                <div class="file">my-app</div>
+                    <div class="children">
+                        <div class="file">e2e</div>
+                        <div class="children">
+                            <div class="file">src</div>
+                            <div class="children">
+                                <div class="file">app.e2e-spec.ts</div>
+                                <div class="file">app.po.ts</div>
+                            </div>
+                            <div class="file">tsconfig.e2e.json</div>
+                            <div class="file">protractor.conf.js</div>
+                        </div>
+                        <div class="file">node_modules/...</div>
+                        <div class="file">src/...</div>
+                        <div class="children">
+                            <div class="file">karma.conf.js</div>
+                        </div>
+                        <div class="file">.editorconfig</div>
+                        <div class="file">.gitignore</div>
+                        <div class="file">angular.json</div>
+                        <div class="file">package.json</div>
+                        <div class="file">README.md</div>
+                        <div class="file">tsconfig.json</div>
+                        <div class="file">tslint.json</div>
+                    </div>
+                </div>
+            <table width="100%">
+                <colgroup><col width="20%">
+
+                    <col width="80%">
+
+                </colgroup><tbody><tr>
+                <th>
+                    File
+                </th>
+                <th>
+                    Purpose
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>e2e/</code></p>
+                </td>
+                <td>
+                    <p>      Inside <code>e2e/</code> live the end-to-end tests.
+                        They shouldn't be inside <code>src/</code> because e2e tests are really a separate app that
+                        just so happens to test your main app.
+                        That's also why they have their own <code>tsconfig.e2e.json</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>node_modules/</code></p>
+                </td>
+                <td>
+                    <p>      <code>Node.js</code> creates this folder and puts all third party modules listed in
+                        <code>package.json</code> inside of it.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>.editorconfig</code></p>
+                </td>
+                <td>
+                    <p>      Simple configuration for your editor to make sure everyone that uses your project
+                        has the same basic configuration.
+                        Most editors support an <code>.editorconfig</code> file.
+                        See <a href="http://editorconfig.org">http://editorconfig.org</a> for more information.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>.gitignore</code></p>
+                </td>
+                <td>
+                    <p>      Git configuration to make sure autogenerated files are not committed to source control.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>angular.json</code></p>
+                </td>
+                <td>
+                    <p>      Configuration for Angular CLI.
+                        In this file you can set several defaults and also configure what files are included
+                        when your project is built.
+                        Check out the official documentation if you want to know more.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>package.json</code></p>
+                </td>
+                <td>
+                    <p>      <code>npm</code> configuration listing the third party packages your project uses.
+                        You can also add your own <a href="https://docs.npmjs.com/misc/scripts">custom scripts</a> here.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>protractor.conf.js</code></p>
+                </td>
+                <td>
+                    <p>      End-to-end test configuration for <a href="http://www.protractortest.org/">Protractor</a>,
+                        used when running <code>ng e2e</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>README.md</code></p>
+                </td>
+                <td>
+                    <p>      Basic documentation for your project, pre-filled with CLI command information.
+                        Make sure to enhance it with project documentation so that anyone
+                        checking out the repo can build your app!</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>tsconfig.json</code></p>
+                </td>
+                <td>
+                    <p>      TypeScript compiler configuration for your IDE to pick up and give you helpful tooling.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>tslint.json</code></p>
+                </td>
+                <td>
+                    <p>      Linting configuration for <a href="https://palantir.github.io/tslint/">TSLint</a> together with
+                        <a href="http://codelyzer.com/">Codelyzer</a>, used when running <code>ng lint</code>.
+                        Linting helps keep your code style consistent.</p>
+                </td>
+            </tr>
+            </tbody></table>
+            </div>
+        <div id="arbolSrc" class="collapse">
+            <div class="filetree">
+                <div class="file">src</div>
+                <div class="children">
+                    <div class="file">app</div>
+                    <div class="children">
+                        <div class="file">app.component.css</div>
+                        <div class="file">app.component.html</div>
+                        <div class="file">app.component.spec.ts</div>
+                        <div class="file">app.component.ts</div>
+                        <div class="file">app.module.ts</div>
+                    </div>
+                    <div class="file">assets</div>
+                    <div class="children">
+                        <div class="file">.gitkeep</div>
+                    </div>
+                    <div class="file">environments</div>
+                    <div class="children">
+                        <div class="file">environment.prod.ts</div>
+                        <div class="file">environment.ts</div>
+                    </div>
+                    <div class="file">browserslist</div>
+                    <div class="file">favicon.ico</div>
+                    <div class="file">index.html</div>
+                    <div class="file">karma.conf.js</div>
+                    <div class="file">main.ts</div>
+                    <div class="file">polyfills.ts</div>
+                    <div class="file">styles.css</div>
+                    <div class="file">test.ts</div>
+                    <div class="file">tsconfig.app.json</div>
+                    <div class="file">tsconfig.spec.json</div>
+                    <div class="file">tslint.json</div>
+                </div>
+            </div>
+            <table width="100%">
+                <colgroup><col width="20%">
+
+                    <col width="80%">
+
+                </colgroup><tbody><tr>
+                <th>
+                    File
+                </th>
+                <th>
+                    Purpose
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>app/app.component.{ts,html,css,spec.ts}</code></p>
+                </td>
+                <td>
+                    <p>      Defines the <code>AppComponent</code> along with an HTML template, CSS stylesheet, and a unit test.
+                        It is the <strong>root</strong> component of what will become a tree of nested components
+                        as the application evolves.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>app/app.module.ts</code></p>
+                </td>
+                <td>
+                    <p>      Defines <code>AppModule</code>, the <a href="guide/bootstrapping" title="AppModule: the root module">root module</a> that tells Angular how to assemble the application.
+                        Right now it declares only the <code>AppComponent</code>.
+                        Soon there will be more components to declare.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>assets/*</code></p>
+                </td>
+                <td>
+                    <p>      A folder where you can put images and anything else to be copied wholesale
+                        when you build your application.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>environments/*</code></p>
+                </td>
+                <td>
+                    <p>      This folder contains one file for each of your destination environments,
+                        each exporting simple configuration variables to use in your application.
+                        The files are replaced on-the-fly when you build your app.
+                        You might use a different API endpoint for development than you do for production
+                        or maybe different analytics tokens.
+                        You might even use some mock services.
+                        Either way, the CLI has you covered.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>browserslist</code></p>
+                </td>
+                <td>
+                    <p>      A configuration file to share <a href="https://github.com/browserslist/browserslist">target browsers</a> between different front-end tools.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>favicon.ico</code></p>
+                </td>
+                <td>
+                    <p>      Every site wants to look good on the bookmark bar.
+                        Get started with your very own Angular icon.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>index.html</code></p>
+                </td>
+                <td>
+                    <p>      The main HTML page that is served when someone visits your site.
+                        Most of the time you'll never need to edit it.
+                        The CLI automatically adds all <code>js</code> and <code>css</code> files when building your app so you
+                        never need to add any <code>&lt;script&gt;</code> or <code>&lt;link&gt;</code> tags here manually.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>karma.conf.js</code></p>
+                </td>
+                <td>
+                    <p>      Unit test configuration for the <a href="https://karma-runner.github.io">Karma test runner</a>,
+                        used when running <code>ng test</code>.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>main.ts</code></p>
+                </td>
+                <td>
+                    <p>      The main entry point for your app.
+                        Compiles the application with the <a href="guide/glossary#jit">JIT compiler</a>
+                        and bootstraps the application's root module (<code>AppModule</code>) to run in the browser.
+                        You can also use the <a href="guide/aot-compiler">AOT compiler</a>
+                        without changing any code by appending the<code>--aot</code> flag to the <code>ng build</code> and <code>ng serve</code> commands.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>polyfills.ts</code></p>
+                </td>
+                <td>
+                    <p>      Different browsers have different levels of support of the web standards.
+                        Polyfills help normalize those differences.
+                        You should be pretty safe with <code>core-js</code> and <code>zone.js</code>, but be sure to check out
+                        the <a href="guide/browser-support">Browser Support guide</a> for more information.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>styles.css</code></p>
+                </td>
+                <td>
+                    <p>      Your global styles go here.
+                        Most of the time you'll want to have local styles in your components for easier maintenance,
+                        but styles that affect all of your app need to be in a central place.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>test.ts</code></p>
+                </td>
+                <td>
+                    <p>      This is the main entry point for your unit tests.
+                        It has some custom configuration that might be unfamiliar, but it's not something you'll
+                        need to edit.</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>tsconfig.{app|spec}.json</code></p>
+                </td>
+                <td>
+                    <p>      TypeScript compiler configuration for the Angular app (<code>tsconfig.app.json</code>)
+                        and for the unit tests (<code>tsconfig.spec.json</code>).</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>      <code>tslint.json</code></p>
+                </td>
+                <td>
+                    <p>      Additional Linting configuration for <a href="https://palantir.github.io/tslint/">TSLint</a> together with
+                        <a href="http://codelyzer.com/">Codelyzer</a>, used when running <code>ng lint</code>.
+                        Linting helps keep your code style consistent.</p>
+                </td>
+            </tr>
+            </tbody></table>
+
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

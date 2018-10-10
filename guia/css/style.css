@@ -1,0 +1,130 @@
+.title {
+    padding: 20px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+#sidebar {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+#content {
+    float: left;
+    width: 75%;
+    padding: 10px;
+    border-left: 1px dotted #dcdcdc;
+}
+#content > div {
+    margin-top: 10px;
+}
+#sidebar > ul {
+    padding: 0;
+    list-style: none;
+}
+.load_content.activo {
+    color: blue;
+    font-weight: bold;
+}
+.load_content {
+    cursor: pointer;
+}
+.load_content:hover {
+    font-weight: bold;
+}
+
+.node_command {
+    display: block;
+    background: #333;
+    color: #17ff0b;
+    padding: 5px 15px;
+}
+
+.parrafo {
+    overflow: hidden;
+    margin-bottom: 20px ;
+}
+#arbolRaiz,#arbolSrc {
+    margin-top: 10px;
+}
+
+.archivo {
+    background: rgba(241,241,241,.2);
+    border: 1px solid #dcdcdc;
+    border-radius:5px;
+}
+.archivo > div {
+    padding:0 15px;
+    background-color: #1e88e5;
+    color: #fafafa;
+    border-radius:5px;
+
+}
+.archivo > pre {
+    padding: 20px;
+
+}
+
+/* EXTERNO */
+.filetree {
+    background: #fafafa;
+    border: 4px solid #dbdbdb;
+    border-radius: 4px;
+    margin: 0 0 24px;
+    padding: 16px 32px;
+}
+td, th {
+    vertical-align: top;
+}
+.filetree .file {
+    display: block;
+    font-family: Roboto,"Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    letter-spacing: .3px;
+    line-height: 32px;
+    color: #333;
+}
+.filetree .children {
+    padding-left: 24px;
+    position: relative;
+    overflow: hidden;
+}
+.filetree .children .file {
+    position: relative;
+}
+.filetree .children .file:before {
+    content: '';
+    left: -18px;
+    bottom: 16px;
+    width: 16px;
+    height: 9999px;
+    position: absolute;
+    border-width: 0 0 1px 1px;
+    border-style: solid;
+    border-color: #dbdbdb;
+    border-radius: 0 0 0 3px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 24px 0;
+    box-shadow: 0 2px 2px rgba(10,16,20,.24), 0 0 2px rgba(10,16,20,.12);
+    border-radius: 2px;
+    background: #fafafa;
+}
+table tbody>tr>th {
+    background: rgba(219,219,219,.2);
+    border-right: 1px solid #dbdbdb;
+    font-weight: 600;
+    max-width: 100px;
+}
+table tbody>tr>td, table tbody>tr>th {
+    border-bottom: 1px solid #dbdbdb;
+    padding: 16px;
+    text-align: left;
+    line-height: 24px;
+    vertical-align: top;
+}
+table tbody th {
+    max-width: 100px;
+    padding: 13px 32px;
+    text-align: left;
+}
